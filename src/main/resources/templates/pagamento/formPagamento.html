@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>PagueNet</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link rel="stylesheet" href="style/style.css"/>
+</head>
+<body>
+
+	<header>
+		<nav>
+			<div class="nav-wrapper blue darken-3">
+			  <a href="#" class="brand-logo">Lista de Pagamentos</a>
+			  <ul id="nav-mobile" class="right hide-on-med-and-down">
+			    <li><a href="/pagamentos" class="waves-effect red lighten-1 btn"><i class="material-icons left">format_list_bulleted</i>Lista de Pagamentos</a></li>
+			  </ul>
+			</div>
+	    </nav>
+	</header>
+	
+	<th:block th:include="mensagemValidacao"></th:block>
+	<div class="container formPagamento">
+	<form class="container" method="post">
+		<div class="row">
+			<div class="input-field col s6">
+				Mês referente:<input type="text" value="" name="nome"/>
+			</div>
+			<div class="input-field col s6">
+				Vencimento:<input type="date" value="" name="data"/>
+			</div>
+		</div>
+		<button class="waves-effect red lighten-1 btn" type="submit">Salvar</button>
+	</form>
+	</div>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+
+</html>

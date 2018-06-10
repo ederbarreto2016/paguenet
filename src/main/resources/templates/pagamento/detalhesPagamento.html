@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>PagueNet</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    <link rel="stylesheet" href="style/style.css"/>
+</head>
+<body>
+	
+	<header>
+		<nav>
+			<div class="nav-wrapper blue darken-3">
+			  <a href="#" class="brand-logo">Pagamento</a>
+			  <ul id="nav-mobile" class="right hide-on-med-and-down">
+			    <li><a href="/pagamentos" class="waves-effect red lighten-1 btn"><i class="material-icons left">add_circle_outline</i>Lista de pagamentos</a></li>
+			  </ul>
+			</div>
+	    </nav>
+	</header>
+
+	<div th:each="pagamento : ${pagamento}" class="container detalhesPagamento">
+	<h5>Detalhes do Pagamento</h5>
+		<div class="row">
+			<p>Mês: <span th:text="${pagamento.nome}"></span></p>
+			<p>Data do vencimento: <span th:text="${pagamento.data}"></span></p>		
+		</div>
+		</div>
+		<th:block th:include="mensagemValidacao"></th:block>
+		<div class="container formCliente">
+		<form method="post">
+			Nome:<input type="text" value="" name="nomeCliente"/>
+			Situação:<input type="text" value="" name="situacao"/>
+			Telefone:<input type="text" value="" name="telefone"/>
+			<button class="waves-effect red lighten-1 btn" type="submit">Adicionar</button>
+		</form>
+		</div>
+	<table class="container tabelaCliente">
+		<thead>
+			<tr>
+				<th>Nome Cliente</th>
+				<th>Situação</th>
+				<th>Telefone</th>
+				<th>Deletar</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${clientes}">
+				<td><span th:text="${cliente.nomeCliente}"></span></td>
+				<td><span th:text="${cliente.situacao}"></span></td>
+				<td><span th:text="${cliente.telefone}"></span></td>
+				<td><a th:href="${(#mvc.url('PC#deletarCliente').arg(0, cliente.idCliente)).build()}"><i class="material-icons left">delete</i></a></td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</body>
+</html>

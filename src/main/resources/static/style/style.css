@@ -1,0 +1,27 @@
+.detalhesPagamento{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 20px;
+	padding-left: 20px;
+	margin-bottom: 60px;
+}
+
+.formCliente{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 60px;
+}
+
+.tabelaCliente{
+	width: 50%;
+}
+
+.formPagamento{
+	box-shadow: 0px 0px 5px grey;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	margin-bottom: 60px;
+}
+
